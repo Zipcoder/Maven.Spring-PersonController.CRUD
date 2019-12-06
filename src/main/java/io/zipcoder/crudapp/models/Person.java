@@ -14,6 +14,10 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int Id;
 
+    public Person(){
+
+    }
+
     public String getFirstName() {
         return firstName;
     }

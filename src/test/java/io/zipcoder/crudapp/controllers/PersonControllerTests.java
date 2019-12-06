@@ -32,5 +32,24 @@ public class PersonControllerTests {
     @MockBean
     private PersonRepository repository;
 
+    @Test
+    public void testCreatePerson() throws Exception {
+        Person newPerson = new Person();
+        newPerson.setFirstName("Valentin");
+        newPerson.setLastName("G");
 
+        BDDMockito
+                .given(repository.save(newPerson))
+                .willReturn(newPerson);
+
+        String expectedContent = "{\"ID\":null,\"FIRST_NAME\":\"Valentin\",\"LAST_NAME\":\"G\"}";
+        this.mvc.perform(MockMvcRequestBuilders
+                .post("/people/")
+                .content(expectedContent)
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
+            )
+                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(MockMvcResultMatchers.content().string(expectedContent));
+    }
 }
