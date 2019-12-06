@@ -1,17 +1,15 @@
 package io.zipcoder.crudapp;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PersonService {
 
-        private PersonRepository repository;
-        //private Person person;
+    @Autowired
+    private PersonRepository repository;
 
-    public PersonService(PersonRepository repository) {
-        this.repository = repository;
-    }
 
     public Iterable<Person> findAllPeople () {
         return repository.findAll();
@@ -26,13 +24,15 @@ public class PersonService {
     }
 
     public Person updatePerson (Person person) {
-        Person personInDB = repository.findOne(person.getId());
-        personInDB.setFirstName(person.getFirstName());
-        personInDB.setLastName(person.getLastName());
-        return repository.save(personInDB);
+//        Person personInDB = repository.findOne(person.getId());
+//        personInDB.setFirstName(person.getFirstName());
+//        personInDB.setLastName(person.getLastName());
+//        return repository.save(personInDB);
+          return repository.save(person);
     }
 
-    public void deletePerson (Integer id) {
+    public Boolean deletePerson (Integer id) {
         repository.delete(id);
+        return true;
     }
 }

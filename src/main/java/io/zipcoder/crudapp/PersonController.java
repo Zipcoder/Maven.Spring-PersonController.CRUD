@@ -3,18 +3,15 @@ package io.zipcoder.crudapp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
-@RestController
+@Controller
 public class PersonController {
-    private PersonService service;
-
     @Autowired
-    public PersonController(PersonService service) {
-        this.service = service;
-    }
+    private PersonService service;
 
     @PostMapping("/people")
     public ResponseEntity<Person> createPerson (@RequestBody Person person){
@@ -31,7 +28,6 @@ public class PersonController {
     return new ResponseEntity<>(service.findAllPeople(), HttpStatus.OK);
     }
 
-
     @PutMapping("/people")
     public ResponseEntity<Person> updatePerson (@RequestBody Person person){
     return new ResponseEntity<>(service.updatePerson(person), HttpStatus.OK);
@@ -40,9 +36,5 @@ public class PersonController {
     @DeleteMapping("/people/{id}")
     public ResponseEntity<Boolean> deletePerson(@PathVariable Integer id){
         return new ResponseEntity<>(service.deletePerson(id), HttpStatus.OK);
-
-
     }
-
-
 }
