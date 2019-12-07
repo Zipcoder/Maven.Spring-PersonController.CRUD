@@ -18,8 +18,8 @@ public class PersonService {
 
     public Person updatePerson(Person newPersonData, Integer id){
         Person personToUpdate = this.personRepository.findOne(id);
-        personToUpdate.setFirstName(newPersonData.getFirstName());
-        personToUpdate.setLastName(newPersonData.getLastName());
+        personToUpdate.setFirst_NAME(newPersonData.getFirst_NAME());
+        personToUpdate.setLast_NAME(newPersonData.getLast_NAME());
         this.personRepository.save(personToUpdate);
 
         return personToUpdate;

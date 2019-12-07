@@ -7,34 +7,34 @@ import javax.persistence.Id;
 
 @Entity
 public class Person {
-    private String firstName;
-    private String lastName;
+    private String first_NAME;
+    private String last_NAME;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int Id;
+    private int id;
 
     public Person(){
 
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirst_NAME() {
+        return first_NAME;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLast_NAME() {
+        return last_NAME;
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirst_NAME(String firstName) {
+        this.first_NAME = firstName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLast_NAME(String lastName) {
+        this.last_NAME = lastName;
     }
 }
