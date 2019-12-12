@@ -7,8 +7,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class PersonService {
 
-    @Autowired
+
     private PersonRepository repository;
+
+    @Autowired
+    public PersonService(PersonRepository repository){
+        this.repository = repository;
+    }
 
 
     public Iterable<Person> findAllPeople () {
@@ -16,7 +21,7 @@ public class PersonService {
     }
 
     public Person findOnePerson (Integer id){
-        return repository.findOne(id);
+        return repository.findById(id).get();
     }
 
     public Person createPerson (Person person){
@@ -32,7 +37,7 @@ public class PersonService {
     }
 
     public Boolean deletePerson (Integer id) {
-        repository.delete(id);
+        repository.deleteById(id);
         return true;
     }
 }

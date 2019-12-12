@@ -10,8 +10,14 @@ import java.util.ArrayList;
 
 @Controller
 public class PersonController {
-    @Autowired
+
+
     private PersonService service;
+
+    @Autowired
+    private PersonController(PersonService service){
+        this.service = service;
+    }
 
     @PostMapping("/people")
     public ResponseEntity<Person> createPerson (@RequestBody Person person){
