@@ -26,7 +26,7 @@ public class PersonService {
     public Person update(Long id, Person newPersonData) {
         Person person = repository.findOne(id);
         person.setFirstName(newPersonData.getFirstName());
-        person.setFirstName(newPersonData.getLastName());
+        person.setLastName(newPersonData.getLastName());
         return repository.save(person);
     }
 
@@ -36,8 +36,4 @@ public class PersonService {
         return person;
     }
 
-    public Person deletePerson(Person person) {
-        repository.delete(person);
-        return person;
-    }
 }

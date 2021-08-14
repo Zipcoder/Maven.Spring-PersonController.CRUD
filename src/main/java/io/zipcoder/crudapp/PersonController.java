@@ -27,7 +27,7 @@ public class PersonController {
         return new ResponseEntity<>(personService.findById(id), HttpStatus.OK);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Person> update(@PathVariable Long id, @RequestBody Person person) {
         return new ResponseEntity<>(personService.update(id, person), HttpStatus.OK);
     }
@@ -35,10 +35,5 @@ public class PersonController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Person> deleteById(@PathVariable Long id) {
         return new ResponseEntity<>(personService.deleteById(id), HttpStatus.OK);
-    }
-
-    @DeleteMapping("/delete")
-    public ResponseEntity<Person> deleteByPerson(@RequestBody Person person) {
-        return new ResponseEntity<>(personService.deletePerson(person), HttpStatus.OK);
     }
 }
