@@ -47,5 +47,4 @@ public class PersonController {
     public ResponseEntity<Person> delete(@PathVariable Long id){
         return new ResponseEntity<>(service.delete(id), HttpStatus.NO_CONTENT);
     }
-
 }
