@@ -53,5 +53,4 @@ public class PersonController {
     public ResponseEntity<Person> delete(@RequestBody Person person){
         return new ResponseEntity<>(service.delete(person),HttpStatus.NO_CONTENT);
     }
-
 }
