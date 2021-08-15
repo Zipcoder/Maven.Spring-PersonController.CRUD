@@ -19,11 +19,11 @@ public class PersonController {
     public ResponseEntity<Person> create(@RequestBody Person person) {
         return new ResponseEntity<>(personService.create(person), HttpStatus.CREATED);
     }
-    @GetMapping(value ="/people")
+    @GetMapping(value ="/readAll")
     public ResponseEntity<Iterable<Person>> readAll() {
         return new ResponseEntity<>(personService.readAll(), HttpStatus.OK);
     }
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/read{id}")
     public ResponseEntity<Person> read(@PathVariable Long id){
         return  new ResponseEntity<>(personService.read(id),HttpStatus.OK);
     }
