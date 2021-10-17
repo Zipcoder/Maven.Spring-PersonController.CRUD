@@ -1,9 +1,8 @@
 package io.zipcoder.crudapp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 
 @Entity
 public class Person {
@@ -12,6 +11,11 @@ public class Person {
     private Long id;
     private String firstName;
     private String lastName;
+
+
+    @ManyToOne
+    @JsonIgnore
+    private People people;
 
     public Person() {
     }

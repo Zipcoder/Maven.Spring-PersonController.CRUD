@@ -12,8 +12,10 @@ public class PersonConfig {
 
     @PostConstruct
     public void setup() {
-        service.create(new Person(6L, "Bob", "Billy"));
+        service.create(new Person());
         service.create(new Person());
         service.create(new Person());
     }
 }
+// Cardinality - OneToOne ManyToMany OneToMany
+
